@@ -7,7 +7,6 @@ import org.hibernate.annotations.ColumnDefault;
 
 import com.educational.material.entity.TopicEntity;
 
-import jakarta.persistence.Column;
 
 public class SubTopicVO {
 	private Long subTopicID;

@@ -23,7 +23,7 @@ public class NavigationLinkController {
 	
 	@Autowired private NavigationLinkTransaction navigationLinkTransaction;
 	
-	@GetMapping(value = "/nav/link/{status}")
+	@GetMapping(value = "/public/nav/link/{status}")
 	public ResponseVO getAllNavigationLink(@PathVariable("status") String status){
 		ResponseVO responseVO = new ResponseVO();
 		List<NavigationVO> navigationVO = navigationLinkTransaction.getAllNavigationLink(status);
@@ -31,7 +31,7 @@ public class NavigationLinkController {
 		return responseVO;
 	}
 	
-	@GetMapping(value = "/nav/links")
+	@GetMapping(value = "/public/nav/links")
 	public ResponseVO getNavigationLinkByLogedInUser(){
 		ResponseVO responseVO = new ResponseVO();
 		List<NavigationVO> navigationVO = navigationLinkTransaction.getNavigationLinkByLogedInUser();
@@ -48,7 +48,7 @@ public class NavigationLinkController {
 		return responseVO;
 	}
 	
-	@GetMapping("/get/nav/{navId}")
+	@GetMapping("/public/get/nav/{navId}")
 	public ResponseVO getNavigationByNavId(@PathVariable("navId") Integer navId) {
 		ResponseVO responseVO = new ResponseVO();
 		NavigationVO navigationVO = navigationLinkTransaction.getNavigationByNavId(navId);

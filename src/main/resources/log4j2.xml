@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="trace">
+	<Appenders>
+		<Consolel name="LogToConsole" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>%d - %C [%M] - (%p) %m %n</pattern>
+			</PatternLayout>
+		</Consolel>
+		<File name="LogToFile" fileName="logs/myapp.log">
+			<PatternLayout>
+				<pattern>%d - %C [%M] - (%p) %m %n</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="LogToConsole" />
+		</Root>
+	</Loggers>
+ </Configuration>

@@ -1,0 +1,67 @@
+package com.educational.material.utils;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties.Jwt;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
+@Component
+public class JwtUtil {
+	
+	@Value("$(app.secretkey)")
+	private String secretKey;
+
+	private String createToken(Map<String, Object> claims, String subject) {
+		
+		return Jwts.builder().setClaims(claims)
+				.setSubject(subject)
+				.setIssuedAt(new Date(System.currentTimeMillis()))
+				.setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5)))
+				.signWith(SignatureAlgorithm.HS512, secretKey.getBytes())
+				.compact();
+	}
+	
+	// Generate Token
+	public String generateToken(String username) {
+		Map<String, Object> claims = new HashMap<>();
+		return createToken(claims, username);
+	}
+	
+	
+	private Boolean isTokenExpired(String token){
+		return extractExpiration(token).before(new Date());
+	}
+	
+	public Date extractExpiration(String token) {
+		return extractClaim(token, Claims::getExpiration);
+	}
+	
+	public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+		final Claims claims = extractAllClaims(token);
+		return claimsResolver.apply(claims);
+	}
+	
+	private Claims extractAllClaims(String token) {
+		return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+	}
+	
+	public Boolean validateToken(String token, UserDetails userDetails) {
+		final String username = extractUsername(token);
+		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+	}
+	
+	public String extractUsername(String token) {
+		return extractClaim(token, Claims::getSubject);
+	}
+}
+

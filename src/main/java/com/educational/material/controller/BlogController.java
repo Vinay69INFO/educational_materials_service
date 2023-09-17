@@ -24,7 +24,7 @@ public class BlogController {
 	
 	@Autowired private BlogTransaction blogTransaction;
 	
-	@GetMapping("/get/all/blog/{status}")
+	@GetMapping("/public/get/all/blog/{status}")
 	public ResponseVO getAllTopicByStatus(@PathVariable("status") String status){
 		ResponseVO responseVO = new ResponseVO();
 		List<BlogVO> blogVOs = blogTransaction.getAllBlogVOByStatus(status);
@@ -41,7 +41,7 @@ public class BlogController {
 		return responseVO;
 	}
 	
-	@GetMapping("/get/blog/{blogid}")
+	@GetMapping("/public/get/blog/{blogid}")
 	public ResponseVO getBlogVObyBlogId(@PathVariable("blogid") Integer blogId){
 		ResponseVO responseVO = new ResponseVO();
 		BlogVO blogVOs = blogTransaction.getBlogVObyBlogId(blogId);
@@ -49,7 +49,7 @@ public class BlogController {
 		return responseVO;
 	}
 	
-	@GetMapping("/get/blog/select/{blogPageKey}")
+	@GetMapping("/public/get/blog/select/{blogPageKey}")
 	public ResponseVO getBlogVObypageKey(@PathVariable("blogPageKey") String blogPageKey){
 		ResponseVO responseVO = new ResponseVO();
 		System.out.println("============@GetMapping====================> " + blogPageKey);

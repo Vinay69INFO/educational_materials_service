@@ -20,12 +20,12 @@ import com.educational.material.vos.TopicVOs;
 
 @RestController
 //@RequestMapping("/public")
-@RequestMapping("/admin")
+//@RequestMapping("/admin")
 public class TopicController {
 	
 	@Autowired TopicTransaction topicTransaction;
 
-	@GetMapping("/topic/{status}")
+	@GetMapping("/public/topic/{status}")
 	public ResponseVO getAllTopicByStatus(@PathVariable("status") String status){
 		ResponseVO responseVO = new ResponseVO();
 		List<TopicVO> topicVOs = topicTransaction.getAllTopicsByStatus(status);
@@ -42,7 +42,7 @@ public class TopicController {
 		return responseVO;
 	}
 	
-	@GetMapping("/all/topics/{navid}")
+	@GetMapping("/public/all/topics/{navid}")
 	public ResponseVO getALLTopicByNavId(@PathVariable("navid") Long navId) {
 		ResponseVO responseVO = new ResponseVO();
 		List<TopicVO> topicVOs = topicTransaction.getALLTopicWithSubTopicByNav(navId);
@@ -50,7 +50,7 @@ public class TopicController {
 		return responseVO;
 	}
 	
-	@GetMapping("/get/all/topics/{navtitle}")
+	@GetMapping("/public/get/all/topics/{navtitle}")
 	public ResponseVO getALLTopicByNavId(@PathVariable("navtitle") String navtitle) {
 		ResponseVO responseVO = new ResponseVO();
 		List<TopicVO> topicVOs = topicTransaction.getALLTopicWithSubTopicByNavTile(navtitle);

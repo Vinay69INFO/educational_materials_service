@@ -22,7 +22,7 @@ public class SubTopicController {
 	
 	@Autowired private SubTopicTransaction subTopicTransaction;
 	
-	@GetMapping("/subtopic/{status}")
+	@GetMapping("/pulic/subtopic/{status}")
 	public ResponseVO getAllTopicByStatus(@PathVariable("status") String status){
 		ResponseVO responseVO = new ResponseVO();
 		List<SubTopicVO> subTopicVOs = subTopicTransaction.getAllSubTopicVOByStatus(status);
@@ -38,7 +38,7 @@ public class SubTopicController {
 		return responseVO;
 	}
 	
-	@GetMapping("/get/subtopic")
+	@GetMapping("/public/get/subtopic")
 	public ResponseVO getSubTopicByTitle(@PathVariable("title") String title){
 		ResponseVO responseVO = new ResponseVO();
 		SubTopicVO subTopicVO = subTopicTransaction.getSubTopicByTitle(title);
@@ -64,7 +64,7 @@ public class SubTopicController {
 	}
 
 	
-	@GetMapping("/all/subtopic/{topicId}")
+	@GetMapping("/public/all/subtopic/{topicId}")
 	public ResponseVO getALLSubTopicByTopicId(@PathVariable("topicId") Long topicId) {
 		ResponseVO responseVO = new ResponseVO();
 		List<SubTopicVO> topicVOs = subTopicTransaction.getALLSubTopicByTopicId(topicId);
