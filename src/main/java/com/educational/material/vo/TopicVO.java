@@ -6,7 +6,7 @@ import java.util.List;
 public class TopicVO {
 	
 	private Long topicId;
-	private Integer navId;
+	private long navId;
 	private String topicTitle;
 	private String topicNavigationUrl;
 	private String topicStatus;
@@ -43,11 +43,11 @@ public class TopicVO {
 		return topicId;
 	}	
 
-	public Integer getNavId() {
+	public long getNavId() {
 		return navId;
 	}
 
-	public void setNavId(Integer navId) {
+	public void setNavId(long navId) {
 		this.navId = navId;
 	}
 

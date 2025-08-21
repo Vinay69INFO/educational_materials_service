@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.educational.material.transactions.interfaces.BlogTransaction;
 import com.educational.material.vo.BlogVO;
 import com.educational.material.vo.ResponseVO;
-import com.educational.material.vo.SubTopicVO;
 
-@RestController
-@CrossOrigin(origins = {"http://localhost:4201", "http://localhost:4200"}, methods = {RequestMethod.GET, RequestMethod.PUT, RequestMethod.POST, RequestMethod.DELETE})
-
+//@RestController
+//@CrossOrigin(origins = {"http://localhost:4201", "http://localhost:4200"}, methods = {RequestMethod.GET, RequestMethod.PUT, RequestMethod.POST, RequestMethod.DELETE})
 public class BlogController {
 	
 	@Autowired private BlogTransaction blogTransaction;
@@ -42,7 +40,7 @@ public class BlogController {
 	}
 	
 	@GetMapping("/public/get/blog/{blogid}")
-	public ResponseVO getBlogVObyBlogId(@PathVariable("blogid") Integer blogId){
+	public ResponseVO getBlogVObyBlogId(@PathVariable("blogid") Long blogId){
 		ResponseVO responseVO = new ResponseVO();
 		BlogVO blogVOs = blogTransaction.getBlogVObyBlogId(blogId);
 		responseVO.setPayload(blogVOs);
@@ -59,7 +57,7 @@ public class BlogController {
 	}
 	
 	@DeleteMapping("/delete/blog/{blogId}")
-	public ResponseVO deleteBlogById(@PathVariable("blogId") Integer blogId) {
+	public ResponseVO deleteBlogById(@PathVariable("blogId") Long blogId) {
 		ResponseVO responseVO = new ResponseVO();
 		blogTransaction.deleteBlogById(blogId);
 		responseVO.setMes(blogId + "Deleted successuly!");

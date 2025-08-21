@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.educational.material.entity.NavigationEntity;
@@ -97,13 +98,13 @@ public class NavigationLinkServicesImpli implements NavigationLinkService{
 	}
 
 	@Override
-	public NavigationVO getNavigationByNavId(Integer navId) {
+	public NavigationVO getNavigationByNavId(long navId) {
 		NavigationEntity navigationEntity = navigationLinkRepo.getById(navId);
 		return getNavigationVO(navigationEntity);
 	}
 
 	@Override
-	public void deleteNavigationByNavId(Integer navId) {
+	public void deleteNavigationByNavId(long navId) {
 		navigationLinkRepo.deleteById(navId);
 	}
 

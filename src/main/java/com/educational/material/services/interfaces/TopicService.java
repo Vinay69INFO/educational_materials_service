@@ -8,7 +8,7 @@ import com.educational.material.vos.TopicVOs;
 public interface TopicService {
 	
 	public List<TopicVO> getAllTopic(String status);
-	public void createTopic(TopicVO topicVO);
+	public TopicVO createTopic(TopicVO topicVO);
 	
 	public List<TopicVO> getNavigationLinkByNavId(Long navId);
 	public void deleteTopicBytopicId(Integer topicId);

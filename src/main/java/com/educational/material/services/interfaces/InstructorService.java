@@ -1,11 +1,17 @@
 package com.educational.material.services.interfaces;
 
 import com.educational.material.vo.auth.InstructorVO;
-import com.educational.material.vo.auth.LogedInUserVO;
+import com.educational.material.vo.auth.LoggedInUserVO;
+import com.educational.material.vo.auth.RegisterVO;
 
 public interface InstructorService {
-	InstructorVO getById(Long instructorId);
+	public InstructorVO getById(Long instructorId);
 
-	LogedInUserVO getByLoninId(Long instructorId);
+	public LoggedInUserVO getByLoninId(Long instructorId);
+	
+	public void createInstructor(RegisterVO registerVO);
+	
+	public InstructorVO getInstructorDetailsByEmail(String emailID);
+
 	
 }

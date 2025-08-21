@@ -14,7 +14,7 @@ import com.educational.material.entity.NavigationEntity;
 import com.educational.material.utils.InvictusStatus;
 
 @Repository
-public interface NavigationLinkRepo extends JpaRepository<NavigationEntity, Integer>{
+public interface NavigationLinkRepo extends JpaRepository<NavigationEntity, Long>{
 	
 	@Query("SELECT n FROM NavigationEntity n WHERE n.navStatus = :status") 
 	List<NavigationEntity> getAllNavigationLinkByStatus(@Param("status") String status);

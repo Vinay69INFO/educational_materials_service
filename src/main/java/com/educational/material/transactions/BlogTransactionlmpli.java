@@ -27,7 +27,7 @@ public class BlogTransactionlmpli implements BlogTransaction{
 	}
 
 	@Override
-	public BlogVO getBlogVObyBlogId(Integer blogId) {
+	public BlogVO getBlogVObyBlogId(Long blogId) {
 		
 		return blogService.getBlogVObyBlogId(blogId);
 	}
@@ -38,7 +38,7 @@ public class BlogTransactionlmpli implements BlogTransaction{
 	}
 
 	@Override
-	public void deleteBlogById(Integer blogId) {
+	public void deleteBlogById(Long blogId) {
 		blogService.deleteBlogById(blogId);
 	}
 }

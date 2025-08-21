@@ -3,6 +3,7 @@ package com.educational.material.services;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,9 @@ public class InstructorSessionServicesImpl implements InstructorSessionServices{
 	
 	@Override
 	public InstructorSessionVO userSessionByTokenAndDevicceId(String token, String deviceId) {
+		System.out.println(deviceId + " <=========================> " + token);
 		InstructorSessionEntity entity = instructorSessionRepo.getByTokenAndDevideId(token, deviceId);
+		System.out.println(deviceId + " <========= entity ================> " + entity);
 		return getVO(entity);
 	}
 
@@ -45,6 +48,7 @@ public class InstructorSessionServicesImpl implements InstructorSessionServices{
 		InstructorSessionEntity entity = new InstructorSessionEntity();
 		InstructorSessionPK pk = new InstructorSessionPK();
 		pk.setDeviceId(UUID.randomUUID().toString());
+		System.out.println("===== instructorVO.getInstructorId() =========================> " + instructorVO.getInstructorId());
 		pk.setInstructorId(instructorVO.getInstructorId());
 		entity.setInstructorSessionPK(pk);
 		entity.setSessionToken(token);

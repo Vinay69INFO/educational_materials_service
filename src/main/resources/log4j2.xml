@@ -17,4 +17,4 @@
 			<AppenderRef ref="LogToConsole" />
 		</Root>
 	</Loggers>
- </Configuration>
+</Configuration>

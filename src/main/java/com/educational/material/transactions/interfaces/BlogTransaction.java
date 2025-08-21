@@ -9,9 +9,9 @@ public interface BlogTransaction {
 	
 	public void createSubTopic(BlogVO blogVO);
 	
-	public BlogVO getBlogVObyBlogId(Integer blogId);
+	public BlogVO getBlogVObyBlogId(Long blogId);
 	
 	public BlogVO getBlogVObyPageKey(String blogPageKey);
 
-	public void deleteBlogById(Integer blogId);
+	public void deleteBlogById(Long blogId);
 }

@@ -7,7 +7,7 @@ import com.educational.material.vos.TopicVOs;
 
 public interface TopicTransaction {
 	public List<TopicVO> getAllTopicsByStatus(String status);
-	public void createTopic(TopicVO topicVO);
+	public TopicVO createTopic(TopicVO topicVO);
 	
 	public List<TopicVO> getALLTopicWithSubTopicByNav(Long navId);
 	

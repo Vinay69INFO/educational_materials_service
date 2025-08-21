@@ -5,7 +5,7 @@ import com.educational.material.vo.auth.InstructorVO;
 
 public interface InstructorSessionServices {
 
-	InstructorSessionVO userSessionByTokenAndDevicceId(String token, String deviceId);
+	public InstructorSessionVO userSessionByTokenAndDevicceId(String token, String deviceId);
 
-	InstructorSessionVO createStudentSession(String token, String deviceId, InstructorVO instructorVO);
+	public InstructorSessionVO createStudentSession(String token, String deviceId, InstructorVO instructorVO);
 }

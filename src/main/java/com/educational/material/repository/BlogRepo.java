@@ -15,7 +15,7 @@ import com.educational.material.entity.TopicEntity;
 import com.educational.material.utils.InvictusStatus;
 
 @Repository
-public interface BlogRepo extends JpaRepository<BlogEntity, Integer>{
+public interface BlogRepo extends JpaRepository<BlogEntity, Long>{
 
 	
 	@Modifying

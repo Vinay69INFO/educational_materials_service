@@ -13,9 +13,9 @@ public interface NavigationLinkService {
 
 	public List<NavigationVO> getNavigationLinkByLogedInUser();
 
-	public NavigationVO getNavigationByNavId(Integer navId);
+	public NavigationVO getNavigationByNavId(long navId);
 
-	public void deleteNavigationByNavId(Integer navId);
+	public void deleteNavigationByNavId(long navId);
 
 	public void updateNavigationLink(NavigationVO navigationVO);
 

@@ -28,8 +28,9 @@ public class TopicTransactionImpli implements TopicTransaction{
 	}
 
 	@Override
-	public void createTopic(TopicVO topicVO) {
-		topicService.createTopic(topicVO);
+	public TopicVO createTopic(TopicVO topicVO) {
+		
+		return topicService.createTopic(topicVO);
 		
 	}
 

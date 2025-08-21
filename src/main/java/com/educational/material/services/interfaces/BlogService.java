@@ -9,10 +9,10 @@ public interface BlogService {
 	
 	public List<BlogVO> getAllBlogVOByStatus(String status);
 	
-	public BlogVO getBlogVObyBlogId(Integer blogId);
+	public BlogVO getBlogVObyBlogId(Long blogId);
 	
 	public BlogVO getBlogVObyPageKey(String blogPageKey);
 	
-	public void deleteBlogById(Integer blogId);
+	public void deleteBlogById(Long blogId);
 
 }

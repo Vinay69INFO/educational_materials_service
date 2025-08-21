@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.educational.material.exception.ProductNotfoundException;
+import com.educational.material.exception.unchecked.ProductNotfoundException;
 import com.educational.material.vo.ResponseVO;
 
 @ControllerAdvice

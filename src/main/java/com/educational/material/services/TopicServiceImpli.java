@@ -2,6 +2,7 @@ package com.educational.material.services;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,9 @@ public class TopicServiceImpli implements TopicService{
 	}
 
 	@Override
-	public void createTopic(TopicVO topicVO) {
+	public TopicVO createTopic(TopicVO topicVO) {
 		TopicEntity topicEntity = getTopicEntity(topicVO);
-		topicRepo.save(topicEntity);
+		return getTopicVO(topicRepo.save(topicEntity));
 	}
 
 	private TopicEntity getTopicEntity(TopicVO topicVO) {
@@ -46,7 +47,8 @@ public class TopicServiceImpli implements TopicService{
 		System.out.println("hellow ji" + navigationEntity);
 		TopicEntity entity = new TopicEntity();
 		entity.setTopicTitle(topicVO.getTopicTitle());
-		entity.setNavigationEntity(navigationEntity);
+		//entity.setNavigationEntity(navigationEntity.isPresent() ? navigationEntity.get() : null); // Conditional or Ternary operation
+		entity.setNavigationEntity(navigationEntity); // Conditional or Ternary operation
 		entity.setTopicNavigationUrl(topicVO.getTopicNavigationUrl());
 		entity.setTopicStatus("P");
 		entity.setAddSubTopicStatus(topicVO.getSubTopicStatus());

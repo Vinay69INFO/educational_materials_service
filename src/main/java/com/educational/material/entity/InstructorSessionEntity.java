@@ -90,12 +90,11 @@ public class InstructorSessionEntity implements Serializable{
 	}
 	
 	
+	
+	
 	@Override
 	public String toString() {
-		return "InstructorSessionEntity [instructorSessionPK=" + instructorSessionPK + ", instructorEntity="
-				+ instructorEntity + ", sessionToken=" + sessionToken + ", status=" + status + ", loginTimestamp="
-				+ loginTimestamp + ", loginClassification=" + loginClassification + ", logoutOrInvalidationDateTime="
-				+ logoutOrInvalidationDateTime + "]";
+		return "InstructorSessionEntity [instructorSessionPK=" + instructorSessionPK + ", sessionToken=" + sessionToken + ", status=" + status + "]";
 	}
 	
 }

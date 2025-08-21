@@ -3,6 +3,8 @@ package com.educational.material.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,29 +27,37 @@ public class TopicController {
 	
 	@Autowired TopicTransaction topicTransaction;
 
-	@GetMapping("/public/topic/{status}")
+	@GetMapping("/topic/{status}")
 	public ResponseVO getAllTopicByStatus(@PathVariable("status") String status){
 		ResponseVO responseVO = new ResponseVO();
+		
 		List<TopicVO> topicVOs = topicTransaction.getAllTopicsByStatus(status);
+		System.out.println("=================================> " + topicVOs);
 		responseVO.setPayload(topicVOs);
 		return responseVO;
 	}
 	
 	@PostMapping("/add/topic")
-	public ResponseVO createTopic(@RequestBody TopicVO topicVO) {
+	//ResponseVO
+	public ResponseEntity createTopic(@RequestBody TopicVO topicVO) {
 		System.out.println("hellow ===========> " + topicVO);
 		ResponseVO responseVO = new ResponseVO();
-		topicTransaction.createTopic(topicVO);
-		responseVO.setPayload(topicVO);
-		return responseVO;
+		TopicVO topic = topicTransaction.createTopic(topicVO);
+		responseVO.setPayload(topic);
+		responseVO.setAppStatusCode(HttpStatus.CREATED.value());
+		System.out.println("HttpsSatus: " + HttpStatus.CREATED.value());
+		//return responseVO;
+		return new ResponseEntity<>(topic, HttpStatus.CREATED);
 	}
 	
+	//ResponseVO
 	@GetMapping("/public/all/topics/{navid}")
-	public ResponseVO getALLTopicByNavId(@PathVariable("navid") Long navId) {
+	public ResponseEntity getALLTopicByNavId(@PathVariable("navid") Long navId) {
 		ResponseVO responseVO = new ResponseVO();
 		List<TopicVO> topicVOs = topicTransaction.getALLTopicWithSubTopicByNav(navId);
 		responseVO.setPayload(topicVOs);
-		return responseVO;
+		//return responseVO;
+		return new ResponseEntity<>(topicVOs, HttpStatus.OK);
 	}
 	
 	@GetMapping("/public/get/all/topics/{navtitle}")

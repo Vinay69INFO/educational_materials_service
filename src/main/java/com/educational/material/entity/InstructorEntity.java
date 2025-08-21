@@ -122,12 +122,9 @@ public class InstructorEntity {
 	}
 	@Override
 	public String toString() {
-		return "InstructorEntity [instructorId=" + instructorId + ", emailAddress=" + emailAddress
-				+ ", instructorFullName=" + instructorFullName + ", mobileNumber=" + mobileNumber + ", gender=" + gender
-				+ ", nationality=" + nationality + ", dorrmantFlag=" + dorrmantFlag + ", instructorPageKey="
-				+ instructorPageKey + ", instructorDepartment=" + instructorDepartment + ", passwordEncrypted="
-				+ passwordEncrypted + ", instructorRole=" + instructorRole + ", createdTimestamp=" + createdTimestamp
-				+ ", lastUdatedTimestamp=" + lastUdatedTimestamp + "]";
+		return "InstructorEntity [instructorId=" + instructorId + ", emailAddress=" + emailAddress + "]";
 	}
+	
+	
 	
 }

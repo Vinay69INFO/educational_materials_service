@@ -83,7 +83,7 @@ public class BlogServiceImpli implements BlogService {
 	}
 
 	@Override
-	public BlogVO getBlogVObyBlogId(Integer blogId) {
+	public BlogVO getBlogVObyBlogId(Long blogId) {
 		BlogEntity blogEntity = blogRepo.getById(blogId);
 		return getBlogVO(blogEntity);
 	}
@@ -110,7 +110,7 @@ public class BlogServiceImpli implements BlogService {
 	}
 
 	@Override
-	public void deleteBlogById(Integer blogId) {
+	public void deleteBlogById(Long blogId) {
 		blogRepo.deleteById(blogId);
 	}
 
